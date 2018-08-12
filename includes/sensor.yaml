@@ -1,0 +1,39 @@
+- platform: yr
+
+- platform: google_travel_time
+  name: Home to Work
+  api_key: !secret google_api
+  origin: !secret address_home
+  destination: !secret address_work
+  options:
+      mode: driving
+      departure_time: now
+
+- platform: google_travel_time
+  name: Work to Home
+  api_key: !secret google_api
+  origin: !secret address_work
+  destination: !secret address_home
+  options:
+      mode: driving
+      departure_time: now
+
+- platform: speedtest
+  minute: 30
+  hour:
+      - 0
+      - 6
+      - 12
+      - 18
+  monitored_conditions:
+      - ping
+      - download
+      - upload
+
+- platform: cert_expiry
+  host: !secret hass_url
+  name: !secret hass_url
+
+- platform: cert_expiry
+  host: !secret thuis_url
+  name: !secret thuis_url

@@ -1,0 +1,102 @@
+general:
+    name: Algemeen
+    control: hidden
+    entities:
+        - light.gateway_light_7811dcb8b670
+        - sensor.illumination_7811dcb8b670
+        - remote.mi_universal_remote
+
+door:
+    name: Deuren
+    control: hidden
+    entities:
+        - binary_sensor.door_window_sensor_158d0002049ad9
+        - binary_sensor.door_window_sensor_158d0002386484
+
+devices:
+    name: Apparaten
+    control: hidden
+    entities:
+        - device_tracker.04d6aab38996
+        - device_tracker.08c5e172b3ad
+
+living_room:
+    name: Huiskamer
+    control: hidden
+    entities:
+        - light.ledlamp_tvkast
+        - light.ledlamp_vitrinekast
+        - light.ledstrip_tv
+        - sensor.temperature_158d0002288693
+        - sensor.humidity_158d0002288693
+        - sensor.pressure_158d0002288693
+        - media_player.ue55es8000_ue55es8000
+        - media_player.danhs_chromecast
+        - media_player.google_home_mini
+        - binary_sensor.motion_sensor_158d0001e05882
+        - sensor.illumination_158d0001e05882
+        - remote.mi_universal_remote
+
+kitchen:
+    name: Keuken
+    control: hidden
+    entities:
+        - binary_sensor.smoke_sensor_158d0001e82161
+        - binary_sensor.motion_sensor_158d0001e561c5
+        - sensor.illumination_158d0001e561c5
+        - light.ledstrip_keuken
+        - light.ledlamp_keukenkast
+
+bedroom:
+    name: Slaapkamer
+    control: hidden
+    entities:
+        - light.bureaulamp
+        - binary_sensor.switch_158d0001f9f279
+        - sensor.temperature_158d0002271bc4
+        - sensor.humidity_158d0002271bc4
+        - sensor.pressure_158d0002271bc4
+
+kidsroom:
+    name: Kinderkamer
+    control: hidden
+    entities:
+        - sensor.temperature_158d00022cb817
+        - sensor.humidity_158d00022cb817
+        - sensor.pressure_158d00022cb817
+
+living_room_view:
+    view: yes
+    name: Living room
+    entities:
+        - group.living_room
+        - remote.mi_universal_remote
+        - script.receiver_off
+        - script.receiver_on
+
+house_view:
+    view: yes
+    name: House
+    entities:
+        - group.door
+        - group.devices
+        - camera.hikvision_ds2cd3345i
+
+kitchen_view:
+    view: yes
+    name: Kitchen
+    entities:
+        - group.kitchen
+
+bedroom_view:
+    view: yes
+    name: Bedroom
+    entities:
+        - group.bedroom
+        - group.kidsroom
+
+automation_view:
+    view: yes
+    name: Automation
+    entities:
+        - group.all_automations

@@ -1,0 +1,185 @@
+title: !secret name
+# Include external resources
+# resources:
+#   - url: /local/my-custom-card.js
+#     type: js
+#   - url: /local/my-webfont.css
+#     type: css
+
+# Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
+# background: center / cover no-repeat url("/local/apartment-clean-condominium-279719.jpg") fixed
+views:
+    - icon: mdi:home-assistant
+      title: house
+      id: house
+      cards:
+          - type: vertical-stack
+            cards:
+                - type: entities
+                  entities:
+                      - entity: binary_sensor.ip_camera_motion
+                        name: HIKvision motion
+                        secondary_info: last-changed
+                - type: picture-entity
+                  entity: camera.hikvision_ds2cd3345i
+                  show_name: false
+                  show_state: false
+                - type: entities
+                  entities:
+                      - entity: switch.deurbel
+                        icon: mdi:doorbell-video
+                        secondary_info: last-changed
+                - type: horizontal-stack
+                  cards:
+                      - type: entities
+                        entities:
+                            - entity: binary_sensor.door_window_sensor_158d0002049ad9
+                              icon: mdi:door
+                              secondary_info: last-changed
+                      - type: entities
+                        entities:
+                            - entity: binary_sensor.door_window_sensor_158d0002386484
+                              icon: mdi:door
+                              secondary_info: last-changed
+
+    - icon: mdi:sofa
+      title: living room
+      id: living_room
+      cards:
+          - type: vertical-stack
+            cards:
+                - type: horizontal-stack
+                  cards:
+                      - type: picture-entity
+                        image: /local/tv.jpg
+                        entity: media_player.ue55es8000_ue55es8000
+                        name: Samsung TV
+                      - type: picture-entity
+                        image: /local/ledstrip.jpg
+                        entity: light.ledstrip_tv
+                - type: entities
+                  entities:
+                      - remote.mi_universal_remote
+                - type: conditional
+                  conditions:
+                      - entity: remote.mi_universal_remote
+                        state: 'on'
+                      - entity: remote.mi_universal_remote
+                        state_not: 'off'
+                  card:
+                      type: entities
+                      entities:
+                          - script.receiver_off
+                          - script.receiver_on
+                - type: entities
+                  entities:
+                      - media_player.danhs_chromecast
+                      - media_player.google_home_mini
+                - type: horizontal-stack
+                  cards:
+                      - type: picture-entity
+                        image: /local/light.jpg
+                        entity: light.ledlamp_tvkast
+                        tap_action: toggle
+                      - type: picture-entity
+                        image: /local/light.jpg
+                        entity: light.ledlamp_vitrinekast
+                        tap_action: toggle
+                - type: entities
+                  entities:
+                      - sensor.temperature_158d0002288693
+                      - sensor.humidity_158d0002288693
+                      - sensor.pressure_158d0002288693
+                - type: entities
+                  entities:
+                      - binary_sensor.motion_sensor_158d0001e05882
+                      - sensor.illumination_158d0001e05882
+
+    - icon: mdi:hotel
+      title: bedroom
+      id: bedroom
+      cards:
+          - type: vertical-stack
+            cards:
+                - type: horizontal-stack
+                  cards:
+                      - type: picture-entity
+                        image: /local/desklight.jpg
+                        entity: light.gateway_light_7811dcb8b670
+                        name: Xiaomi Gateway
+                      - type: picture-entity
+                        image: /local/desklight.jpg
+                        entity: light.bureaulamp
+                - type: entities
+                  entities:
+                      - sensor.temperature_158d0002271bc4
+                      - sensor.humidity_158d0002271bc4
+                      - sensor.pressure_158d0002271bc4
+                  title: Slaapkamer
+                  show_header_toggle: false
+                - type: entities
+                  entities:
+                      - sensor.temperature_158d00022cb817
+                      - sensor.humidity_158d00022cb817
+                      - sensor.pressure_158d00022cb817
+                  title: Kinderkamer
+                  show_header_toggle: false
+
+    - icon: mdi:pot-mix
+      title: kitchen
+      id: kitchen
+      cards:
+          - type: vertical-stack
+            cards:
+                - type: entities
+                  entities:
+                      - binary_sensor.smoke_sensor_158d0001e82161
+                - type: horizontal-stack
+                  cards:
+                      - type: picture-entity
+                        image: /local/kitchenledstrip.jpg
+                        entity: light.ledstrip_keuken
+                      - type: picture-entity
+                        image: /local/kitchenled.jpg
+                        entity: light.ledlamp_keukenkast
+                  title: Lights
+                  show_header_toggle: false
+                - type: entities
+                  entities:
+                      - binary_sensor.motion_sensor_158d0001e561c5
+                      - sensor.illumination_158d0001e561c5
+
+    - icon: mdi:account-multiple
+      title: devices
+      id: devices
+      cards:
+          - type: entities
+            entities:
+                - entity: device_tracker.04d6aab38996
+                  secondary_info: last-changed
+          - type: entities
+            entities:
+                - entity: device_tracker.08c5e172b3ad
+                  secondary_info: last-changed
+
+    - icon: mdi:information-outline
+      title: information
+      id: information
+      cards:
+          - type: vertical-stack
+            cards:
+                - type: entities
+                  entities:
+                      - sensor.speedtest_download
+                      - sensor.speedtest_upload
+                      - sensor.speedtest_ping
+                - type: entities
+                  entities:
+                      - entity: sensor.thuisdanhnguyennl
+                        name: thuis.danhnguyen.nl SSL certificate expiry
+                      - entity: sensor.hassdanhnguyennl
+                        name: hass.danhnguyen.nl SSL certificate expiry
+                - type: entities
+                  entities:
+                      - sensor.home_to_work
+                      - sensor.work_to_home

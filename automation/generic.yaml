@@ -1,0 +1,37 @@
+- alias: Xiaomi Gateway light on
+  hide_entity: True
+  trigger:
+      platform: sun
+      event: sunset
+  action:
+      service: light.turn_on
+      entity_id: light.gateway_light_7811dcb8b670
+      data:
+          brightness: 5
+          rgb_color: [255, 255, 255]
+
+- alias: Xiaomi Gateway light off
+  hide_entity: True
+  trigger:
+      platform: time
+      at: '07:00:00'
+  action:
+      service: light.turn_off
+      entity_id: light.gateway_light_7811dcb8b670
+
+- alias: Send notification on fire alarm
+  hide_entity: True
+  trigger:
+      platform: state
+      entity_id: binary_sensor.smoke_sensor_158d0001e82161
+      from: 'off'
+      to: 'on'
+  action:
+      - service: notify.telegram
+        data:
+            title: Fire alarm!
+            message: Fire/Smoke detected!
+      - service: xiaomi_aqara.play_ringtone
+        data:
+            ringtone_id: 2
+            ringtone_vol: 100

@@ -1,0 +1,125 @@
+###################################################
+#                                                 #
+#     Home Assistant Main Configuration File      #
+#                                                 #
+###################################################
+
+homeassistant:
+    name: !secret name
+    latitude: !secret latitude
+    longitude: !secret longitude
+    elevation: -7
+    unit_system: metric
+    temperature_unit: C
+    time_zone: !secret timezone
+    customize: !include customize.yaml
+
+###################################################
+#                                                 #
+#                     Panel                       #
+#                                                 #
+###################################################
+
+panel_iframe:
+    terminal:
+        title: Terminal
+        icon: mdi:console
+        url: http://192.168.0.101:7681
+
+####################################################
+#                                                  #
+#                     Enables                      #
+#                                                  #
+####################################################
+
+frontend:
+    javascript_version: latest
+    themes: !include includes/themes.yaml
+http:
+    api_password: !secret http_password
+    use_x_forwarded_for: true
+    ip_ban_enabled: false
+    trusted_networks:
+        - 192.168.0.0/24
+        - 172.16.0.0/12
+updater:
+    include_used_components: true
+discovery:
+    ignore:
+        - yeelight
+tts:
+    - platform: google
+? config
+? history
+? logbook
+? sun
+
+####################################################
+#                                                  #
+#                     Devices                      #
+#                                                  #
+####################################################
+
+binary_sensor:
+    - platform: hikvision
+      host: !secret hikvision_ip
+      ssl: false
+      username: !secret hikvision_user
+      password: !secret hikvision_pwd
+
+camera:
+    - platform: generic
+      name: HIKvision DS-2CD3345-I
+      framerate: 30
+      username: !secret hikvision_user
+      password: !secret hikvision_pwd
+      still_image_url: !secret hikvision_image
+
+device_tracker:
+    - platform: nmap_tracker
+      hosts:
+          - 192.168.0.107
+          - 192.168.0.108
+          - 192.168.0.109
+      home_interval: 10
+
+rfxtrx:
+    device: /dev/ttyUSB0
+
+remote:
+    - platform: xiaomi_miio
+      name: 'Xiaomi Universal Remote'
+      host: !secret xiaomi_irremote_ip
+      token: !secret xiaomi_irremote_key
+      slot: 1
+      timeout: 30
+      hidden: false
+
+telegram_bot:
+    - platform: polling
+      name: telegram
+      api_key: !secret telegram_chat_token
+      allowed_chat_ids:
+          - !secret telegram_chat_id
+
+weather:
+    - platform: buienradar
+
+xiaomi_aqara:
+    discovery_retry: 5
+    gateways:
+        - key: !secret xiaomi_gateway_key
+
+####################################################
+#                                                  #
+#                    Includes                      #
+#                                                  #
+####################################################
+
+automation: !include_dir_merge_list automation/
+group: !include groups.yaml
+light: !include includes/lights.yaml
+notify: !include includes/notify.yaml
+script: !include scripts.yaml
+switch: !include includes/switch.yaml
+sensor: !include includes/sensor.yaml

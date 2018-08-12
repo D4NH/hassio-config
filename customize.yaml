@@ -1,0 +1,17 @@
+media_player.ue55es8000_ue55es8000:
+    hidden: false
+    friendly_name: Samsung TV
+
+binary_sensor.ip_camera_motion:
+    friendly_name: HIKvision motion
+
+switch.deurbel:
+    friendly_name: 'Deurbel'
+    icon: mdi:bell-ring
+    assumed_state: false
+
+binary_sensor.door_window_sensor_158d0002049ad9:
+    friendly_name: 'Voordeur'
+
+binary_sensor.door_window_sensor_158d0002386484:
+    friendly_name: 'Achterdeur'

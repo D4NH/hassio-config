@@ -1,0 +1,18 @@
+- alias: Notify on motion camera
+  initial_state: 'off'
+  trigger:
+      platform: state
+      entity_id: binary_sensor.ip_camera_motion
+      to: 'on'
+  action:
+      - delay: '00:00:02'
+      - service: notify.telegram
+        data:
+            title: HIKvision DS-2CD3345-I
+            message: Motion detected!
+            data:
+                photo:
+                    - url: !secret hikvision_image
+                      username: !secret hikvision_user
+                      password: !secret hikvision_pwd
+                      caption: Beweging gedetecteerd

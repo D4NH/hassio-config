@@ -1,0 +1,41 @@
+- alias: Notify on boot
+  hide_entity: True
+  trigger:
+      platform: homeassistant
+      event: start
+  action:
+      service: notify.telegram
+      data:
+          message: Home Assistant is Online
+
+- alias: Home Assistant news
+  hide_entity: True
+  trigger:
+      platform: state
+      entity_id: updater.updater
+  action:
+      service: notify.telegram
+      data:
+          message: 'New update for Home Assistant is now available.'
+
+- alias: Doorbell notification
+  hide_entity: True
+  trigger:
+      platform: event
+      event_type: button_pressed
+      event_data: { 'state': 'group on', 'entity_id': 'switch.deurbel' }
+  action:
+      - service: notify.telegram
+        data:
+            title: HIKvision DS-2CD3345-I
+            message: Er is aangebeld
+            data:
+                photo:
+                    - url: !secret hikvision_image
+                      username: !secret hikvision_user
+                      password: !secret hikvision_pwd
+                      caption: Er is aangebeld
+      - service: xiaomi_aqara.play_ringtone
+        data:
+            ringtone_id: 10
+            ringtone_vol: 80

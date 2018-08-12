@@ -1,0 +1,21 @@
+- platform: xiaomi_miio
+  name: Bureaulamp
+  host: !secret xiaomi_lightbulb_ip
+  token: !secret xiaomi_lightbulb_key
+  model: philips.light.bulb
+
+- platform: yeelight
+  devices:
+      192.168.0.112:
+          name: LEDlamp TVkast
+      192.168.0.113:
+          name: LEDlamp vitrinekast
+
+- platform: rfxtrx
+  devices:
+      0b11000200dbd6ce02010f60:
+          name: LEDstrip TV
+      0b11000100dbd6ce01010f60:
+          name: LEDstrip keuken
+      0b11000400dbd6ce03010f60:
+          name: LEDlamp keukenkast
