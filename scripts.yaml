@@ -1,5 +1,5 @@
 receiver_on:
-    alias: 'Turn on receiver'
+    alias: 'Turn on Receiver'
     sequence:
         - data:
               command: Z6VHADICAACSBgAAqwgAAG4RAAAjIwAA4KsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0AAAAAAAAABAAAAAAEBAQAAAAAAAAABAQEBAQEBAQAABQJAA=
@@ -7,9 +7,17 @@ receiver_on:
           service: remote.send_command
 
 receiver_off:
-    alias: 'Turn off receiver'
+    alias: 'Turn off Receiver'
     sequence:
         - data:
               command: Z6VLADMCAACPBgAAqwgAADkRAAAjIwAA4KsAANR1AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0AAAAAAAAABAAAAAAEBAQABAQEBAQAAAQAAAAAAAQEABQJGAkAA==
+              entity_id: remote.mi_universal_remote
+          service: remote.send_command
+
+tv_on_off:
+    alias: 'Turn on/off TV'
+    sequence:
+        - data:
+              command: Z6WHADECAACOBgAAnREAANC2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiEBAQAAAAAAAQEBAAAAAAAAAQAAAAAAAAEAAQEBAQEBAwIhAQEAAAAAAAEBAQAAAAAAAAEAAAAAAAABAAEBAQEBAQAA==
               entity_id: remote.mi_universal_remote
           service: remote.send_command

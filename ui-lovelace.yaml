@@ -71,6 +71,7 @@ views:
                       entities:
                           - script.receiver_off
                           - script.receiver_on
+                          - script.tv_on_off
                 - type: entities
                   entities:
                       - media_player.danhs_chromecast
