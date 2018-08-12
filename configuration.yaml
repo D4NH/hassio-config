@@ -104,6 +104,8 @@ telegram_bot:
 
 weather:
     - platform: buienradar
+      name: Rotterdam
+      forecast: True
 
 xiaomi_aqara:
     discovery_retry: 5

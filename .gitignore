@@ -1,9 +1,9 @@
 *
 !*.yaml
-!scenes
+!scenes/*
 !.gitignore
 secrets.yaml
 known_devices.yaml
-!automation
-!includes
-!www
+!automation/*
+!includes/*
+!www/*

@@ -104,7 +104,7 @@ views:
                 - type: horizontal-stack
                   cards:
                       - type: picture-entity
-                        image: /local/desklight.jpg
+                        image: /local/xiaomi.jpg
                         entity: light.gateway_light_7811dcb8b670
                         name: Xiaomi Gateway
                       - type: picture-entity
@@ -168,6 +168,8 @@ views:
       cards:
           - type: vertical-stack
             cards:
+                - type: weather-forecast
+                  entity: weather.rotterdam
                 - type: entities
                   entities:
                       - sensor.speedtest_download
