@@ -1,22 +1,45 @@
 - platform: yr
 
-- platform: google_travel_time
+# - platform: google_travel_time
+#   name: Home to Work
+#   api_key: !secret google_api
+#   origin: !secret address_home
+#   destination: !secret address_work
+#   options:
+#       mode: driving
+#       departure_time: now
+
+# - platform: google_travel_time
+#   name: Work to Home
+#   api_key: !secret google_api
+#   origin: !secret address_work
+#   destination: !secret address_home
+#   options:
+#       mode: driving
+#       departure_time: now
+
+- platform: waze_travel_time
   name: Home to Work
-  api_key: !secret google_api
   origin: !secret address_home
   destination: !secret address_work
-  options:
-      mode: driving
-      departure_time: now
+  region: 'EU'
 
-- platform: google_travel_time
+- platform: waze_travel_time
   name: Work to Home
-  api_key: !secret google_api
   origin: !secret address_work
   destination: !secret address_home
-  options:
-      mode: driving
-      departure_time: now
+  region: 'EU'
+
+- platform: nederlandse_spoorwegen
+  email: !secret personal_email
+  password: !secret ns_password
+  routes:
+      - name: Capelle aan den IJssel - Rotterdam
+        from: Rtd
+        to: Cps
+      - name: Rotterdam - Capelle aan den IJssel
+        from: Cps
+        to: Rtd
 
 - platform: speedtest
   minute: 30
@@ -37,3 +60,11 @@
 - platform: cert_expiry
   host: !secret thuis_url
   name: !secret thuis_url
+
+- platform: postnl
+  username: !secret personal_email
+  password: !secret postnl_password
+
+- platform: pi_hole
+  host: !secret pihole_url
+

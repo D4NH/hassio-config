@@ -35,18 +35,6 @@
               - light.ledlamp_tvkast
               - light.ledlamp_vitrinekast
 
-- alias: Yeelights on if Lux is low
-  trigger:
-      platform: sun
-      event: sunset
-  action:
-      service: light.turn_on
-      data:
-          brightness: 255
-          entity_id:
-              - light.ledlamp_tvkast
-              - light.ledlamp_vitrinekast
-
 - alias: LEDlamp motion vitrine on
   trigger:
       platform: state
@@ -90,7 +78,7 @@
       service: light.turn_on
       entity_id: light.ledlamp_vitrinekast
       data:
-          brightness: 127
+          brightness: 150
 
 - alias: Turn off Yeelight Vitrinekast at morning
   trigger:

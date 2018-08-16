@@ -41,6 +41,10 @@ views:
                             - entity: binary_sensor.door_window_sensor_158d0002386484
                               icon: mdi:door
                               secondary_info: last-changed
+                - type: entities
+                  entities:
+                      - entity: sensor.postnl
+                        name: PostNL
 
     - icon: mdi:sofa
       title: living room
@@ -69,9 +73,11 @@ views:
                   card:
                       type: entities
                       entities:
-                          - script.receiver_off
-                          - script.receiver_on
-                          - script.tv_on_off
+                          - input_boolean.remote_receiver
+                          - input_boolean.remote_tv
+
+                  # conditional block
+
                 - type: entities
                   entities:
                       - media_player.danhs_chromecast
@@ -88,13 +94,18 @@ views:
                         tap_action: toggle
                 - type: entities
                   entities:
-                      - sensor.temperature_158d0002288693
-                      - sensor.humidity_158d0002288693
-                      - sensor.pressure_158d0002288693
+                      - entity: sensor.temperature_158d0002288693
+                        name: Temperatuur
+                      - entity: sensor.humidity_158d0002288693
+                        name: Luchtvochtigheid
+                      - entity: sensor.pressure_158d0002288693
+                        name: Luchtdruk
                 - type: entities
                   entities:
-                      - binary_sensor.motion_sensor_158d0001e05882
-                      - sensor.illumination_158d0001e05882
+                      - entity: binary_sensor.motion_sensor_158d0001e05882
+                        name: Bewegingssensor
+                      - entity: sensor.illumination_158d0001e05882
+                        name: Lichtsensor
 
     - icon: mdi:hotel
       title: bedroom
@@ -113,16 +124,22 @@ views:
                         entity: light.bureaulamp
                 - type: entities
                   entities:
-                      - sensor.temperature_158d0002271bc4
-                      - sensor.humidity_158d0002271bc4
-                      - sensor.pressure_158d0002271bc4
+                      - entity: sensor.temperature_158d0002271bc4
+                        name: Temperatuur
+                      - entity: sensor.humidity_158d0002271bc4
+                        name: Luchtvochtigheid
+                      - entity: sensor.pressure_158d0002271bc4
+                        name: Luchtdruk
                   title: Slaapkamer
                   show_header_toggle: false
                 - type: entities
                   entities:
-                      - sensor.temperature_158d00022cb817
-                      - sensor.humidity_158d00022cb817
-                      - sensor.pressure_158d00022cb817
+                      - entity: sensor.temperature_158d00022cb817
+                        name: Temperatuur
+                      - entity: sensor.humidity_158d00022cb817
+                        name: Luchtvochtigheid
+                      - entity: sensor.pressure_158d00022cb817
+                        name: Luchtdruk
                   title: Kinderkamer
                   show_header_toggle: false
 
@@ -134,7 +151,8 @@ views:
             cards:
                 - type: entities
                   entities:
-                      - binary_sensor.smoke_sensor_158d0001e82161
+                      - entity: binary_sensor.smoke_sensor_158d0001e82161
+                        name: Rookmelder
                 - type: horizontal-stack
                   cards:
                       - type: picture-entity
@@ -147,8 +165,10 @@ views:
                   show_header_toggle: false
                 - type: entities
                   entities:
-                      - binary_sensor.motion_sensor_158d0001e561c5
-                      - sensor.illumination_158d0001e561c5
+                      - entity: binary_sensor.motion_sensor_158d0001e561c5
+                        name: Bewegingssensor
+                      - entity: sensor.illumination_158d0001e561c5
+                        name: Lichtsensor
 
     - icon: mdi:account-multiple
       title: devices
@@ -162,6 +182,21 @@ views:
             entities:
                 - entity: device_tracker.08c5e172b3ad
                   secondary_info: last-changed
+
+    - icon: mdi:car
+      title: transport
+      id: transport
+      cards:
+          - type: vertical-stack
+            cards:
+                - type: entities
+                  entities:
+                      - sensor.home_to_work
+                      - sensor.work_to_home
+                - type: entities
+                  entities:
+                      - sensor.capelle_aan_den_ijssel__rotterdam
+                      - sensor.rotterdam__capelle_aan_den_ijssel
 
     - icon: mdi:information-outline
       title: information
@@ -182,7 +217,3 @@ views:
                         name: thuis.danhnguyen.nl SSL certificate expiry
                       - entity: sensor.hassdanhnguyennl
                         name: hass.danhnguyen.nl SSL certificate expiry
-                - type: entities
-                  entities:
-                      - sensor.home_to_work
-                      - sensor.work_to_home

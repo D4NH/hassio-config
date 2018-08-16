@@ -1,6 +1,6 @@
-platform: rfxtrx
-automatic_add: False
-devices:
-    0b11000000da27f601040f50:
-        name: Deurbel
-        fire_event: True
+- platform: rfxtrx
+  automatic_add: False
+  devices:
+      0b11000000da27f601040f50:
+          name: Deurbel
+          fire_event: True
