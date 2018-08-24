@@ -1,48 +1,48 @@
 - alias: LEDstrip TV
   trigger:
-      - platform: state
-        entity_id: media_player.ue55es8000_ue55es8000
-        to: 'on'
-      - platform: state
-        entity_id: media_player.ue55es8000_ue55es8000
-        to: 'off'
+    - platform: state
+      entity_id: media_player.ue55es8000_ue55es8000
+      to: 'on'
+    - platform: state
+      entity_id: media_player.ue55es8000_ue55es8000
+      to: 'off'
   action:
-      service_template: >
-          {% if is_state("media_player.ue55es8000_ue55es8000", "on") %}
-              light.turn_on
-          {% else %}
-              light.turn_off
-          {% endif %}
-      entity_id: light.ledstrip_tv
+    service_template: >
+      {% if is_state("media_player.ue55es8000_ue55es8000", "on") %}
+        light.turn_on
+      {% else %}
+        light.turn_off
+      {% endif %}
+    entity_id: light.ledstrip_tv
 
 - alias: LEDstrip keuken on
   trigger:
-      platform: time
-      at: '17:00:00'
+    platform: time
+    at: '17:00:00'
   action:
-      service: light.turn_on
-      entity_id: light.ledstrip_keuken
+    service: light.turn_on
+    entity_id: light.ledstrip_keuken
 
 - alias: LEDstrip keuken off
   trigger:
-      platform: time
-      at: '01:00:00'
+    platform: time
+    at: '01:00:00'
   action:
-      service: light.turn_off
-      entity_id: light.ledstrip_keuken
+    service: light.turn_off
+    entity_id: light.ledstrip_keuken
 
 - alias: LEDstrip keuken morning on
   trigger:
-      platform: time
-      at: '06:00:00'
+    platform: time
+    at: '06:00:00'
   action:
-      service: light.turn_on
-      entity_id: light.ledstrip_keuken
+    service: light.turn_on
+    entity_id: light.ledstrip_keuken
 
 - alias: LEDstrip keuken morning off
   trigger:
-      platform: time
-      at: '07:00:00'
+    platform: time
+    at: '07:00:00'
   action:
-      service: light.turn_off
-      entity_id: light.ledstrip_keuken
+    service: light.turn_off
+    entity_id: light.ledstrip_keuken

@@ -1,113 +1,113 @@
 - alias: Yeelights on at sunset half
   trigger:
-      platform: sun
-      event: sunset
-      offset: '-01:00:00'
+    platform: sun
+    event: sunset
+    offset: '-01:00:00'
   action:
-      service: light.turn_on
-      data:
-          brightness: 150
-          entity_id:
-              - light.ledlamp_tvkast
-              - light.ledlamp_vitrinekast
+    service: light.turn_on
+    data:
+      brightness: 150
+      entity_id:
+        - light.ledlamp_tvkast
+        - light.ledlamp_vitrinekast
 
 - alias: Yeelights on at sunset
   trigger:
-      platform: sun
-      event: sunset
+    platform: sun
+    event: sunset
   action:
-      service: light.turn_on
-      data:
-          brightness: 255
-          entity_id:
-              - light.ledlamp_tvkast
-              - light.ledlamp_vitrinekast
+    service: light.turn_on
+    data:
+      brightness: 255
+      entity_id:
+        - light.ledlamp_tvkast
+        - light.ledlamp_vitrinekast
 
 - alias: Dim yeelights at night
   trigger:
-      platform: time
-      at: '22:15:00'
+    platform: time
+    at: '22:15:00'
   action:
-      service: light.turn_on
-      data:
-          brightness: 150
-          entity_id:
-              - light.ledlamp_tvkast
-              - light.ledlamp_vitrinekast
+    service: light.turn_on
+    data:
+      brightness: 150
+      entity_id:
+        - light.ledlamp_tvkast
+        - light.ledlamp_vitrinekast
 
 - alias: LEDlamp motion vitrine on
   trigger:
-      platform: state
-      entity_id: binary_sensor.motion_sensor_158d0001e05882
-      to: 'on'
+    platform: state
+    entity_id: binary_sensor.motion_sensor_158d0001e05882
+    to: 'on'
   condition:
-      condition: and
-      conditions:
-          - condition: numeric_state
-            entity_id: sensor.illumination_158d0001e05882
-            below: 20
-          - condition: time
-            after: '15:00:00'
-          - condition: time
-            before: '21:00:00'
+    condition: and
+    conditions:
+      - condition: numeric_state
+        entity_id: sensor.illumination_158d0001e05882
+        below: 20
+      - condition: time
+        after: '15:00:00'
+      - condition: time
+        before: '21:00:00'
   action:
-      service: light.turn_on
-      entity_id: light.ledlamp_vitrinekast
+    service: light.turn_on
+    entity_id: light.ledlamp_vitrinekast
 
 - alias: Turn off Yeelight TV at night
   trigger:
-      platform: time
-      at: '23:59:59'
+    platform: time
+    at: '23:59:59'
   action:
-      service: light.turn_off
-      entity_id: light.ledlamp_tvkast
+    service: light.turn_off
+    entity_id: light.ledlamp_tvkast
 
 - alias: Turn off Yeelight Vitrinekast at night
   trigger:
-      platform: time
-      at: '23:00:00'
+    platform: time
+    at: '23:00:00'
   action:
-      service: light.turn_off
-      entity_id: light.ledlamp_vitrinekast
+    service: light.turn_off
+    entity_id: light.ledlamp_vitrinekast
 
 - alias: Turn on Yeelight Vitrinekast at morning
   trigger:
-      platform: time
-      at: '06:30:00'
+    platform: time
+    at: '06:30:00'
   action:
-      service: light.turn_on
-      entity_id: light.ledlamp_vitrinekast
-      data:
-          brightness: 150
+    service: light.turn_on
+    entity_id: light.ledlamp_vitrinekast
+    data:
+      brightness: 150
 
 - alias: Turn off Yeelight Vitrinekast at morning
   trigger:
-      platform: time
-      at: '07:00:00'
+    platform: time
+    at: '07:00:00'
   action:
-      service: light.turn_off
-      entity_id: light.ledlamp_vitrinekast
+    service: light.turn_off
+    entity_id: light.ledlamp_vitrinekast
 
 - alias: LEDlamp motion keuken on
   trigger:
-      platform: state
-      entity_id: binary_sensor.motion_sensor_158d0001e561c5
-      to: 'on'
+    platform: state
+    entity_id: binary_sensor.motion_sensor_158d0001e561c5
+    to: 'on'
   condition:
-      condition: numeric_state
-      entity_id: sensor.illumination_158d0001e561c5
-      below: 80
+    condition: numeric_state
+    entity_id: sensor.illumination_158d0001e561c5
+    below: 80
   action:
-      service: light.turn_on
-      entity_id: light.ledlamp_keukenkast
+    service: light.turn_on
+    entity_id: light.ledlamp_keukenkast
 
 - alias: LEDlamp motion keuken off
   trigger:
-      platform: state
-      entity_id: binary_sensor.motion_sensor_158d0001e561c5
-      to: 'off'
-      for:
-          minutes: 2
+    platform: state
+    entity_id: binary_sensor.motion_sensor_158d0001e561c5
+    to: 'off'
+    for:
+      minutes: 2
   action:
-      service: light.turn_off
-      entity_id: light.ledlamp_keukenkast
+    service: light.turn_off
+    entity_id: light.ledlamp_keukenkast

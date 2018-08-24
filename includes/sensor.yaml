@@ -34,24 +34,21 @@
   email: !secret personal_email
   password: !secret ns_password
   routes:
-      - name: Capelle aan den IJssel - Rotterdam
-        from: Rtd
-        to: Cps
-      - name: Rotterdam - Capelle aan den IJssel
-        from: Cps
-        to: Rtd
+    - name: Capelle aan den IJssel - Rotterdam
+      from: Rtd
+      to: Cps
+    - name: Rotterdam - Capelle aan den IJssel
+      from: Cps
+      to: Rtd
 
 - platform: speedtest
   minute: 30
   hour:
-      - 0
-      - 6
-      - 12
-      - 18
+    - 2
   monitored_conditions:
-      - ping
-      - download
-      - upload
+    - ping
+    - download
+    - upload
 
 - platform: cert_expiry
   host: !secret hass_url
@@ -68,3 +65,10 @@
 - platform: pi_hole
   host: !secret pihole_url
 
+- platform: systemmonitor
+  resources:
+    - type: disk_free
+      arg: /home
+    - type: memory_free
+    - type: processor_use
+    - type: last_boot
