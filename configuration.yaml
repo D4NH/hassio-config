@@ -56,7 +56,8 @@ tts:
   - platform: google
 ? config
 ? history
-? logbook
+logger:
+  default: info
 ? sun
 
 ####################################################

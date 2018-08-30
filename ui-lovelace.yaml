@@ -144,6 +144,13 @@ views:
                 name: Luchtdruk
             title: Kinderkamer
             show_header_toggle: false
+          - type: history-graph
+            title: Temperature
+            entities:
+              - entity: sensor.temperature_158d0002271bc4
+                name: Slaapkamer
+              - entity: sensor.temperature_158d00022cb817
+                name: Kinderkamer
 
   - icon: mdi:pot-mix
     title: kitchen
@@ -172,7 +179,7 @@ views:
               - entity: sensor.illumination_158d0001e561c5
                 name: Lichtsensor
 
-  - icon: mdi:account-multiple
+  - icon: mdi:server-network
     title: devices
     id: devices
     cards:
@@ -185,9 +192,9 @@ views:
           - entity: device_tracker.08c5e172b3ad
             secondary_info: last-changed
 
-  - icon: mdi:car
-    title: transport
-    id: transport
+  - icon: mdi:information-outline
+    title: information
+    id: information
     cards:
       - type: vertical-stack
         cards:
@@ -199,13 +206,6 @@ views:
             entities:
               - sensor.capelle_aan_den_ijssel__rotterdam
               - sensor.rotterdam__capelle_aan_den_ijssel
-
-  - icon: mdi:information-outline
-    title: information
-    id: information
-    cards:
-      - type: vertical-stack
-        cards:
           - type: 'custom:weather-card'
             entity_weather: weather.rotterdam
             entity_sun: sun.sun
