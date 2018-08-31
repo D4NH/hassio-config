@@ -15,3 +15,7 @@ binary_sensor.door_window_sensor_158d0002049ad9:
 
 binary_sensor.door_window_sensor_158d0002386484:
   friendly_name: 'Achterdeur'
+
+binary_sensor.door_window_sensor_158d000242e9eb:
+  friendly_name: 'Keukenraam'
+  

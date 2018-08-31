@@ -1,125 +1,130 @@
 sensor.humidity_158d00022cb817:
-  ? config_entry_id
-  ? name
+  config_entry_id:
+  name:
   platform: xiaomi_aqara
   unique_id: humidity158d00022cb817
 sensor.illumination_158d0001e05882:
-  ? config_entry_id
-  ? name
+  config_entry_id:
+  name:
   platform: xiaomi_aqara
   unique_id: lux158d0001e05882
 sensor.temperature_158d00022cb817:
-  ? config_entry_id
-  ? name
+  config_entry_id:
+  name:
   platform: xiaomi_aqara
   unique_id: temperature158d00022cb817
 sensor.temperature_158d0002288693:
-  ? config_entry_id
-  ? name
+  config_entry_id:
+  name:
   platform: xiaomi_aqara
   unique_id: temperature158d0002288693
 sensor.pressure_158d0002288693:
-  ? config_entry_id
-  ? name
+  config_entry_id:
+  name:
   platform: xiaomi_aqara
   unique_id: pressure158d0002288693
 sensor.illumination_158d0001e561c5:
-  ? config_entry_id
-  ? name
+  config_entry_id:
+  name:
   platform: xiaomi_aqara
   unique_id: lux158d0001e561c5
 sensor.humidity_158d0002271bc4:
-  ? config_entry_id
-  ? name
+  config_entry_id:
+  name:
   platform: xiaomi_aqara
   unique_id: humidity158d0002271bc4
 sensor.pressure_158d00022cb817:
-  ? config_entry_id
-  ? name
+  config_entry_id:
+  name:
   platform: xiaomi_aqara
   unique_id: pressure158d00022cb817
 sensor.pressure_158d0002271bc4:
-  ? config_entry_id
-  ? name
+  config_entry_id:
+  name:
   platform: xiaomi_aqara
   unique_id: pressure158d0002271bc4
 sensor.illumination_7811dcb8b670:
-  ? config_entry_id
-  ? name
+  config_entry_id:
+  name:
   platform: xiaomi_aqara
   unique_id: illumination7811dcb8b670
 sensor.temperature_158d0002271bc4:
-  ? config_entry_id
-  ? name
+  config_entry_id:
+  name:
   platform: xiaomi_aqara
   unique_id: temperature158d0002271bc4
 sensor.humidity_158d0002288693:
-  ? config_entry_id
-  ? name
+  config_entry_id:
+  name:
   platform: xiaomi_aqara
   unique_id: humidity158d0002288693
 light.gateway_light_7811dcb8b670:
-  ? config_entry_id
-  ? name
+  config_entry_id:
+  name:
   platform: xiaomi_aqara
   unique_id: rgb7811dcb8b670
 binary_sensor.switch_158d0001f9f279:
-  ? config_entry_id
-  ? name
+  config_entry_id:
+  name:
   platform: xiaomi_aqara
   unique_id: status158d0001f9f279
 binary_sensor.motion_sensor_158d0001e561c5:
-  ? config_entry_id
-  ? name
+  config_entry_id:
+  name:
   platform: xiaomi_aqara
   unique_id: status158d0001e561c5
 binary_sensor.smoke_sensor_158d0001e82161:
-  ? config_entry_id
-  ? name
+  config_entry_id:
+  name:
   platform: xiaomi_aqara
   unique_id: alarm158d0001e82161
 binary_sensor.motion_sensor_158d0001e05882:
-  ? config_entry_id
-  ? name
+  config_entry_id:
+  name:
   platform: xiaomi_aqara
   unique_id: status158d0001e05882
 binary_sensor.door_window_sensor_158d0002049ad9:
-  ? config_entry_id
-  ? name
+  config_entry_id:
+  name:
   platform: xiaomi_aqara
   unique_id: status158d0002049ad9
 binary_sensor.door_window_sensor_158d0002386484:
-  ? config_entry_id
-  ? name
+  config_entry_id:
+  name:
   platform: xiaomi_aqara
   unique_id: status158d0002386484
 remote.mi_universal_remote:
-  ? config_entry_id
-  ? name
+  config_entry_id:
+  name:
   platform: xiaomi_miio
   unique_id: chuangmi.ir.v2-7C:49:EB:20:48:0C
 binary_sensor.ip_camera_field_detection:
-  ? config_entry_id
-  ? name
+  config_entry_id:
+  name:
   platform: hikvision
   unique_id: 926ad521-b739-11b3-8209-1868cb7be5ae.Field Detection.1
 binary_sensor.ip_camera_motion:
-  ? config_entry_id
-  ? name
+  config_entry_id:
+  name:
   platform: hikvision
   unique_id: 926ad521-b739-11b3-8209-1868cb7be5ae.Motion.1
 media_player.receiver:
   config_entry_id: 156c4d358e5a4bddbb6c1de07016b6fe
-  ? name
+  name:
   platform: cast
   unique_id: c1ee1e77-54b1-471a-bb98-5e1fb6b26940
 media_player.google_home_mini:
   config_entry_id: 156c4d358e5a4bddbb6c1de07016b6fe
-  ? name
+  name:
   platform: cast
   unique_id: 3a49d7ca-858f-8d07-0f09-356912fa8a5e
 media_player.danhs_chromecast:
   config_entry_id: 156c4d358e5a4bddbb6c1de07016b6fe
-  ? name
+  name:
   platform: cast
   unique_id: 91f8d95f-c094-5887-d083-7a4f8c326b34
+binary_sensor.door_window_sensor_158d000242e9eb:
+  config_entry_id:
+  name:
+  platform: xiaomi_aqara
+  unique_id: status158d000242e9eb

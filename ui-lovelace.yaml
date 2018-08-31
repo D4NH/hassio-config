@@ -183,14 +183,31 @@ views:
     title: devices
     id: devices
     cards:
-      - type: entities
-        entities:
-          - entity: device_tracker.04d6aab38996
-            secondary_info: last-changed
-      - type: entities
-        entities:
-          - entity: device_tracker.08c5e172b3ad
-            secondary_info: last-changed
+      - type: vertical-stack
+        cards:
+          - type: entities
+            entities:
+              - entity: device_tracker.04d6aab38996
+                secondary_info: last-changed
+              - entity: device_tracker.08c5e172b3ad
+                secondary_info: last-changed
+          - type: entities
+            entities:
+              - sensor.disk_free_home
+              - sensor.last_boot
+              - sensor.memory_free
+              - sensor.processor_use
+          - type: entities
+            entities:
+              - sensor.pihole_ads_blocked_today
+          - type: entities
+            entities:
+              - entity: sensor.speedtest_download
+                secondary_info: last-changed
+              - entity: sensor.speedtest_upload
+                secondary_info: last-changed
+              - entity: sensor.speedtest_ping
+                secondary_info: last-changed
 
   - icon: mdi:information-outline
     title: information
@@ -209,14 +226,6 @@ views:
           - type: 'custom:weather-card'
             entity_weather: weather.rotterdam
             entity_sun: sun.sun
-          - type: entities
-            entities:
-              - sensor.speedtest_download
-              - sensor.speedtest_upload
-              - sensor.speedtest_ping
-          - type: entities
-            entities:
-              - sensor.pihole_ads_blocked_today
           - type: entities
             entities:
               - entity: sensor.thuisdanhnguyennl

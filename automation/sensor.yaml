@@ -1,0 +1,79 @@
+- alias: Voordeur sensor
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.door_window_sensor_158d0002049ad9
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.door_window_sensor_158d0002049ad9
+      to: 'off'
+  action:
+    service: notify.telegram
+    data:
+      message: >
+        {% if is_state("binary_sensor.door_window_sensor_158d0002049ad9", "on") %}
+          Voordeur is open
+        {% else %}
+          Voordeur is dicht
+        {% endif %}
+
+- alias: Achterdeur sensor
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.door_window_sensor_158d0002386484
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.door_window_sensor_158d0002386484
+      to: 'off'
+  action:
+    service: notify.telegram
+    data:
+      message: >
+        {% if is_state("binary_sensor.door_window_sensor_158d0002386484", "on") %}
+          Achterdeur is open
+        {% else %}
+          Achterdeur is dicht
+        {% endif %}
+
+- alias: Keukenraam sensor
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.door_window_sensor_158d000242e9eb
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.door_window_sensor_158d000242e9eb
+      to: 'off'
+  action:
+    service: notify.telegram
+    data:
+      message: >
+        {% if is_state("binary_sensor.door_window_sensor_158d000242e9eb", "on") %}
+          Keukenraam is open
+        {% else %}
+          Keukenraam is dicht
+        {% endif %}
+        
+
+- alias: Keukenraam notification at night
+  hide_entity: True
+  initial_state: off
+  trigger:
+    platform: time
+    minutes: '/60'
+    seconds: '00'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: binary_sensor.door_window_sensor_158d000242e9eb
+        state: 'on'
+      - condition: time
+        after: '22:00:00'
+  action:
+    - service: notify.telegram
+      data:
+        message: Keukenraam is nog open
+    - service: notify.html5
+      data:
+        title: Voordeur
+        message: Kitchen window still open
+        
